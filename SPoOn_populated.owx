@@ -1,0 +1,3501 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/elisavet/ontologies/2025/01/SPOON"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/elisavet/ontologies/2025/01/SPOON"
+     versionIRI="http://www.semanticweb.org/elisavet/ontologies/2025/01/SPOON/1.0.0">
+    <Prefix name="" IRI="http://www.semanticweb.org/elisavet/ontologies/2025/01/SPOON#"/>
+    <Prefix name="om" IRI="http://www.ontology-of-units-of-measure.org/resource/om-2/"/>
+    <Prefix name="sp" IRI="http://www.semanticweb.org/elisavet/ontologies/2025/01/SPOON#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name=":elis" IRI="http://www.semanticweb.org/elis/ontologies/2024/6/untitled-ontology-15/"/>
+    <Prefix name="twa_gml" IRI="http://www.theworldavatar.com/ontology/ontocitygml/OntoCityGML.owl#"/>
+    <Prefix name="skgParks" IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks-infer#"/>
+    <Prefix name="twa_gml2" IRI="http://www.theworldavatar.com/ontology/ontocitygml/citieskg/OntoCityGML.owl#"/>
+    <Prefix name="twa_build" IRI="http://www.theworldavatar.com/ontology/ontobuildablespace/OntoBuildableSpace.owl#"/>
+    <Prefix name="twa_system" IRI="http://www.theworldavatar.com/ontology/ontocape/upper_level/system.owl/"/>
+    <Prefix name="twa_zoning" IRI="http://www.theworldavatar.com/ontology/ontozoning/OntoZoning.owl#"/>
+    <Prefix name="twa_planreg" IRI="http://www.theworldavatar.com/ontology/ontoplanningregulations/OntoPlaninngRegulation.owl#"/>
+    <Prefix name="twa_zoning2" IRI="http://www.theworldavatar.com/ontoplanningregulations/OntoPlanningRegulation.owl#"/>
+    <Prefix name="twa_planreg2" IRI="http://www.theworldavatar.com/ontology/ontoplanningregulations/OntoPlanningRegulation.owl#"/>
+    <Prefix name="twa_planreg3" IRI="http://www.theworldavatar.com/ontoplanningregulations/OntoPlanningRegulations.owl#"/>
+    <Prefix name="twa_space-time" IRI="http://www.theworldavatar.com/ontology/ontocape/supporting_concepts/space_and_time/space_and_time.owl#"/>
+    <Import>http://www.opengis.net/ont/geosparql/1.1</Import>
+    <Import>http://www.semanticweb.org/urban-regulation-ontology</Import>
+    <Import>http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks-infer</Import>
+    <Import>http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-potential-parks</Import>
+    <Import>http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-streets-Sing-scores</Import>
+    <Import>http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-streets-score</Import>
+    <Import>http://www.semanticweb.org/elisavet/ontologies/2023/10/sing-parks</Import>
+    <Import>http://www.theworldavatar.com/ontobuildablespace/OntoBuildableSpace.owl</Import>
+    <Import>http://www.theworldavatar.com/ontology/ontocitygml/citieskg/OntoCityGML.owl</Import>
+    <Import>http://www.w3.org/2008/05/skos-xl</Import>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal>Sustainable Polis Ontology (SPoOn) is an ontology of urban sustainability, aligned with Greek regulations and terms. 
+The class hierarchy and skos concepts stuctures have been created.
+
+It includes Street and Park individuals with data properties related to graph theory (eg.centralities) and OSM values. Some properties are populated through SPARQL queries (eg. street scores) and SWRL rules that have been applied for categorization and classification.
+
+It also includes regulation-relate classes and area individuals (like potential park areas).
+
+Finally, in this version TWA ontologies, GeoSPARQL and CityGML are imported so there can be some mappings with the SPoOn ontology to be interoperable with geospatial standards and different contexts.</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="http://www.opengis.net/ont/geosparql#Feature"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Accessibility"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ArcheologicalSpace"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BikeLane"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BiologicalMarket"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Block"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Botanical"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Boulevard"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BoundaryFeature"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BuildableArea"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Building"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Bus"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BusLane"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BusStop"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CarLane"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Church"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#City"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CityFurniture"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CityObject"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Community"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ConferenceCenter"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ConstructionLine"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Courtyard"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CoveredWalkway"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CulturalSpace"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Economy"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EducationalSpace"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Environment"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Ferry"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Garden"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Governement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GreenSpace"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Hospital"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#LandUse"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Library"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MetroStop"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Monument"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Museum"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Park"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Parking"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Plaza"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PrivateCourtyard"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Promenade"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PublicMarket"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PublicOpenSpace"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PublicTransportLane"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Railway"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SPoOn"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#School"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Setback"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Sidewalk"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Society"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SportFacility"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Square"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Street"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#StreetLine"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#StreetNetwork"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Subway"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Theater"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TraditionalBuilding"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TramLane"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Transport"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Trolley"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#UrbanEnvironment"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#UrbanRepresentation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#WaterTaxi"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ZoningFeature"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="twa_build:Setback"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="rdf:List"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.opengis.net/ont/geosparql#ehContains"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.opengis.net/ont/geosparql#hasCentroid"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.opengis.net/ont/geosparql#sfWithin"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#defines"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasActivity"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasCoordinates"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasNodes"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasSidewalk"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#has_Centroid"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#includes"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isCloseTo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isComposedOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isDefinedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isSurroundedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#locatedIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#surrounds"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasAddress"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasAmenity"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasArea"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasBarrier"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasBetweenness"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasBikeWay"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasBuildingDensity"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasCirculationArea"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasEmail"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasFootWay"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasGreenArea"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasHeight"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasID"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasLatitude"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasLength"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasLight"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasLongtitude"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasMaterial"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasMaxSpeed"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasName"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasNumberOfLanes"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasNumberOfLevels"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasOpeningHours"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasPercentageOfCirculationArea"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasPercentageOfGreenArea"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasPercentageOfRestArea"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasPhone"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasPopulation"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasPopulationDensity"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasPostCode"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasReference"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasRestArea"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasRoadDensity"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasService"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasSize"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasSmoothness"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasTunnel"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasType"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasUse"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasWebsite"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasWidth"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#isOneWay"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_100"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_102"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_103"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_109"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_11"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_112"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_113"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_114"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_115"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_116"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_117"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_118"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_120"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_122"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_123"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_124"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_130"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_134"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_135"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_137"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_138"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_14"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_140"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_141"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_142"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_143"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_144"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_145"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_148"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_15"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_150"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_151"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_152"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_153"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_154"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_155"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_157"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_159"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_16"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_160"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_161"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_162"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_163"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_164"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_165"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_166"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_167"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_168"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_169"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_17"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_170"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_171"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_172"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_176"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_177"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_178"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_179"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_18"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_180"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_184"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_19"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_198"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_199"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_203"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_213"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_214"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_215"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_216"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_217"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_218"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_219"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_220"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_221"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_222"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_223"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_224"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_225"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_226"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_23"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_232"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_234"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_237"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_238"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_24"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_240"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_241"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_242"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_243"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_244"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_246"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_247"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_248"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_249"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_25"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_250"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_251"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_252"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_253"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_254"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_255"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_256"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_257"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_258"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_26"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_262"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_264"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_265"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_266"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_268"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_269"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_27"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_270"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_271"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_272"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_273"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_274"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_275"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_279"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_28"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_280"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_281"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_283"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_284"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_285"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_286"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_291"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_292"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_293"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_294"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_30"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_303"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_305"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_308"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_31"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_311"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_312"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_313"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_314"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_315"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_316"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_317"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_318"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_323"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_326"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_327"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_328"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_331"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_332"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_335"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_337"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_343"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_35"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_38"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_39"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_40"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_41"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_42"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_47"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_48"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_49"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_50"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_51"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_52"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_54"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_55"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_56"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_7"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_74"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_77"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_8"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_82"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_83"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_84"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_85"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_86"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_87"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_88"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_89"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_92"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_94"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_96"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_97"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_98"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-parks#Park_99"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#ArcheologicalSpace"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#BikeLane"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Block"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Boulevard"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#BuildableArea"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Building"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#BuildingDensity"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#CarLane"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Carpooling"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#City"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#CityObject"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#CityStateOfSingapore"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#ConstructionLine"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Courtyard"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#CoveredWalkway"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#CulturalSpace"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Density"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Economy"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#EducationalSpace"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#ElectricScooter"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Environment"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Ferry"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Garden"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#GreenSpace"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#LandUse"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#ParatransitService"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Park"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Parking"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Plaza"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PopulationDensity"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PrivateCourtyard"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Promenade"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PublicMarket"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PublicOpenSpace"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PublicTransportLane"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Railway"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#RoadDensity"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SPoOn"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Setback"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Sidewalk"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Society"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Square"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Street"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#StreetLine"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#StreetNetwork"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Subway"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#TramLane"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Transport"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Trolley"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#UrbanEnvironment"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#UrbanRepresentation"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#WaterTaxi"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#ΟΤ_120212"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/title"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/contributor"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/created"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/creator"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/license"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/title"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/version"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#altLabel"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+    </Declaration>
+    <Declaration>
+        <Datatype abbreviatedIRI="xsd:date"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="skgParks:City"/>
+        <Class IRI="#City"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="skgParks:Park"/>
+        <Class IRI="#Park"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-streets-Sing-scores#City"/>
+        <Class IRI="#City"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-streets-Sing-scores#Street"/>
+        <Class IRI="#Street"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-streets-score#City"/>
+        <Class IRI="#City"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-streets-score#Street"/>
+        <Class IRI="#Street"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/sing-parks#City"/>
+        <Class IRI="#City"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/sing-parks#Park"/>
+        <Class IRI="#Park"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#LandUse"/>
+        <Class abbreviatedIRI="twa_zoning:LandUse"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Plaza"/>
+        <Class IRI="#Square"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Setback"/>
+        <Class abbreviatedIRI="twa_build:Setback"/>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class abbreviatedIRI="om:Area"/>
+        <Class IRI="#UrbanRepresentation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="om:Depth"/>
+        <Class IRI="#UrbanRepresentation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="om:Distance"/>
+        <Class IRI="#UrbanRepresentation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="om:Height"/>
+        <Class IRI="#UrbanRepresentation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="om:Width"/>
+        <Class IRI="#UrbanRepresentation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.semanticweb.org/elisavet/ontologies/2023/10/osm-potential-parks#PotentialParkAreas"/>
+        <Class abbreviatedIRI="om:Area"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ArcheologicalSpace"/>
+        <Class IRI="#PublicOpenSpace"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BikeLane"/>
+        <Class IRI="#CityObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BiologicalMarket"/>
+        <Class IRI="#PublicMarket"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Block"/>
+        <Class IRI="#CityObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Block"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#includes"/>
+            <Class IRI="#BuildableArea"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Block"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#includes"/>
+            <Class IRI="#Courtyard"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Block"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#includes"/>
+            <Class IRI="#CoveredWalkway"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Block"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#includes"/>
+            <Class IRI="#PublicOpenSpace"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Block"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#isDefinedBy"/>
+            <Class IRI="#StreetLine"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Block"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#isSurroundedBy"/>
+            <Class IRI="#Street"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Botanical"/>
+        <Class IRI="#Garden"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Boulevard"/>
+        <Class IRI="#CityObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BoundaryFeature"/>
+        <Class IRI="http://www.opengis.net/ont/geosparql#Feature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BoundaryFeature"/>
+        <Class IRI="#UrbanRepresentation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BuildableArea"/>
+        <Class IRI="#CityObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BuildableArea"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#includes"/>
+            <Class IRI="#Building"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BuildableArea"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#includes"/>
+            <Class IRI="#Courtyard"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BuildableArea"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#isDefinedBy"/>
+            <Class IRI="#ConstructionLine"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Building"/>
+        <Class IRI="#CityObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Building"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#isSurroundedBy"/>
+            <Class IRI="#Street"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Building"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasAddress"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Building"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasAmenity"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Building"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasArea"/>
+            <Datatype abbreviatedIRI="xsd:double"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Building"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasCirculationArea"/>
+            <Datatype abbreviatedIRI="xsd:double"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Building"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasEmail"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Building"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasGreenArea"/>
+            <Datatype abbreviatedIRI="xsd:double"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Building"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasHeight"/>
+            <Datatype abbreviatedIRI="xsd:decimal"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Building"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasID"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Building"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasName"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Building"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasNumberOfLevels"/>
+            <Datatype abbreviatedIRI="xsd:nonPositiveInteger"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Building"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasOpeningHours"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Building"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasPhone"/>
+            <Datatype abbreviatedIRI="xsd:integer"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Building"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasPostCode"/>
+            <Datatype abbreviatedIRI="xsd:integer"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Building"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasRestArea"/>
+            <Datatype abbreviatedIRI="xsd:double"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Building"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasSize"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Building"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasUse"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Building"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasWebsite"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bus"/>
+        <Class IRI="#Transport"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BusLane"/>
+        <Class IRI="#PublicTransportLane"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BusStop"/>
+        <Class IRI="#CityFurniture"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CarLane"/>
+        <Class IRI="#CityObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Church"/>
+        <Class IRI="#Building"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#City"/>
+        <Class IRI="#UrbanEnvironment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#City"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasArea"/>
+            <Datatype abbreviatedIRI="xsd:decimal"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#City"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasBuildingDensity"/>
+            <Datatype abbreviatedIRI="xsd:decimal"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#City"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasCirculationArea"/>
+            <Datatype abbreviatedIRI="xsd:double"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#City"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasGreenArea"/>
+            <Datatype abbreviatedIRI="xsd:double"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#City"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasName"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#City"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasPopulation"/>
+            <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#City"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasPopulationDensity"/>
+            <Datatype abbreviatedIRI="xsd:decimal"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#City"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasRestArea"/>
+            <Datatype abbreviatedIRI="xsd:double"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#City"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasRoadDensity"/>
+            <Datatype abbreviatedIRI="xsd:decimal"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#City"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasSize"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CityFurniture"/>
+        <Class IRI="#CityObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CityObject"/>
+        <Class IRI="http://www.opengis.net/ont/geosparql#Feature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CityObject"/>
+        <Class IRI="#UrbanEnvironment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Community"/>
+        <Class IRI="#Garden"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ConferenceCenter"/>
+        <Class IRI="#Building"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ConstructionLine"/>
+        <Class IRI="#BoundaryFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ConstructionLine"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#isSurroundedBy"/>
+            <Class IRI="#Street"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Courtyard"/>
+        <Class IRI="#CityObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Courtyard"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#includes"/>
+            <Class IRI="#GreenSpace"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CoveredWalkway"/>
+        <Class IRI="#CityObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CulturalSpace"/>
+        <Class IRI="#PublicOpenSpace"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Economy"/>
+        <Class IRI="#SPoOn"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EducationalSpace"/>
+        <Class IRI="#PublicOpenSpace"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Environment"/>
+        <Class IRI="#SPoOn"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ferry"/>
+        <Class IRI="#Transport"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Garden"/>
+        <Class IRI="#PublicOpenSpace"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Governement"/>
+        <Class IRI="#ConferenceCenter"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#GreenSpace"/>
+        <Class IRI="#CityObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Hospital"/>
+        <Class IRI="#Building"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#LandUse"/>
+        <Class IRI="#ZoningFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Library"/>
+        <Class IRI="#Building"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MetroStop"/>
+        <Class IRI="#CityFurniture"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Monument"/>
+        <Class IRI="#PublicOpenSpace"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Museum"/>
+        <Class IRI="#Building"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Park"/>
+        <Class IRI="#PublicOpenSpace"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Parking"/>
+        <Class IRI="#PublicOpenSpace"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Plaza"/>
+        <Class IRI="#PublicOpenSpace"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PrivateCourtyard"/>
+        <Class IRI="#CityObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PrivateCourtyard"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#includes"/>
+            <Class IRI="#GreenSpace"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Promenade"/>
+        <Class IRI="#PublicOpenSpace"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PublicMarket"/>
+        <Class IRI="#PublicOpenSpace"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PublicOpenSpace"/>
+        <Class IRI="#CityObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PublicOpenSpace"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#includes"/>
+            <Class IRI="#CityFurniture"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PublicOpenSpace"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#includes"/>
+            <Class IRI="#GreenSpace"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PublicOpenSpace"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#semanticRelation"/>
+            <Class IRI="#Plaza"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PublicTransportLane"/>
+        <Class IRI="#CityObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Railway"/>
+        <Class IRI="#Transport"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#School"/>
+        <Class IRI="#Building"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Setback"/>
+        <Class IRI="#ZoningFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sidewalk"/>
+        <Class IRI="#CityObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sidewalk"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#includes"/>
+            <Class IRI="#BikeLane"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sidewalk"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#includes"/>
+            <Class IRI="#CityFurniture"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Society"/>
+        <Class IRI="#SPoOn"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SportFacility"/>
+        <Class IRI="#Building"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Square"/>
+        <Class IRI="#PublicOpenSpace"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Street"/>
+        <Class IRI="#CityObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Street"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#includes"/>
+            <Class IRI="#BikeLane"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Street"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#includes"/>
+            <Class IRI="#CarLane"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Street"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#includes"/>
+            <Class IRI="#PublicTransportLane"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Street"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasID"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Street"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasLength"/>
+            <Datatype abbreviatedIRI="xsd:decimal"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Street"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasMaterial"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Street"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasMaxSpeed"/>
+            <Datatype abbreviatedIRI="xsd:nonPositiveInteger"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Street"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasName"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Street"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasNumberOfLanes"/>
+            <Datatype abbreviatedIRI="xsd:nonPositiveInteger"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Street"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasReference"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Street"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasService"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Street"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasSize"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Street"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasSmoothness"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Street"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasTunnel"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Street"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasType"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Street"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasWidth"/>
+            <Datatype abbreviatedIRI="xsd:decimal"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Street"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#isOneWay"/>
+            <Datatype abbreviatedIRI="xsd:boolean"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#StreetLine"/>
+        <Class IRI="#BoundaryFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#StreetNetwork"/>
+        <Class IRI="#CityObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#StreetNetwork"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#includes"/>
+            <Class IRI="#Sidewalk"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#StreetNetwork"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#includes"/>
+            <Class IRI="#Street"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Subway"/>
+        <Class IRI="#Transport"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Theater"/>
+        <Class IRI="#Building"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TraditionalBuilding"/>
+        <Class IRI="#Building"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TramLane"/>
+        <Class IRI="#PublicTransportLane"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Transport"/>
+        <Class IRI="#CityObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Trolley"/>
+        <Class IRI="#Transport"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#UrbanEnvironment"/>
+        <Class IRI="#SPoOn"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#UrbanRepresentation"/>
+        <Class IRI="#UrbanEnvironment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#WaterTaxi"/>
+        <Class IRI="#Transport"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ZoningFeature"/>
+        <Class IRI="#UrbanRepresentation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.semanticweb.org/urban-regulation-ontology#ConstructionArea"/>
+        <Class abbreviatedIRI="om:Area"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.semanticweb.org/urban-regulation-ontology#ParkArea"/>
+        <Class abbreviatedIRI="om:Area"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.semanticweb.org/urban-regulation-ontology#StreetArea"/>
+        <Class abbreviatedIRI="om:Area"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="twa_build:BuildableSpace"/>
+        <Class IRI="#ZoningFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="twa_build:Footprint"/>
+        <Class IRI="#BoundaryFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="twa_build:GrossPlotRatio"/>
+        <Class IRI="#UrbanRepresentation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="twa_build:SiteCoverage"/>
+        <Class IRI="#BoundaryFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="twa_build:Storey"/>
+        <Class IRI="#UrbanRepresentation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="twa_build:StoreyAggregate"/>
+        <Class IRI="#UrbanRepresentation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="twa_planreg3:URARegulation"/>
+        <Class IRI="#UrbanRepresentation"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#Block"/>
+        <Class IRI="#StreetNetwork"/>
+    </DisjointClasses>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#ArcheologicalSpace"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#BikeLane"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#Block"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#Boulevard"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#BuildableArea"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#Building"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#BuildingDensity"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#CarLane"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#Carpooling"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#City"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#CityObject"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#ConstructionLine"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#Courtyard"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#CoveredWalkway"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#CulturalSpace"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#Density"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#Economy"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#EducationalSpace"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#ElectricScooter"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#Environment"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#Ferry"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#Garden"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#GreenSpace"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#LandUse"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#ParatransitService"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#Park"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#Parking"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#Plaza"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#PopulationDensity"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#PrivateCourtyard"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#Promenade"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#PublicMarket"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#PublicOpenSpace"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#PublicTransportLane"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#Railway"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#RoadDensity"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <NamedIndividual IRI="#SPoOn"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#Setback"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#Sidewalk"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#Society"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#Square"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#Street"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#StreetLine"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#StreetNetwork"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#Subway"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#TramLane"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#Transport"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#Trolley"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#UrbanEnvironment"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#UrbanRepresentation"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="#WaterTaxi"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#ArcheologicalSpace"/>
+        <NamedIndividual IRI="#PublicOpenSpace"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#BikeLane"/>
+        <NamedIndividual IRI="#Street"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broaderTransitive"/>
+        <NamedIndividual IRI="#BikeLane"/>
+        <NamedIndividual IRI="#CityObject"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broaderTransitive"/>
+        <NamedIndividual IRI="#BikeLane"/>
+        <NamedIndividual IRI="#Street"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broaderTransitive"/>
+        <NamedIndividual IRI="#BikeLane"/>
+        <NamedIndividual IRI="#StreetNetwork"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
+        <NamedIndividual IRI="#BikeLane"/>
+        <NamedIndividual IRI="#SPoOn"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#semanticRelation"/>
+        <NamedIndividual IRI="#BikeLane"/>
+        <NamedIndividual IRI="#CityObject"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#semanticRelation"/>
+        <NamedIndividual IRI="#BikeLane"/>
+        <NamedIndividual IRI="#Street"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#semanticRelation"/>
+        <NamedIndividual IRI="#BikeLane"/>
+        <NamedIndividual IRI="#StreetNetwork"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#Block"/>
+        <NamedIndividual IRI="#CityObject"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#Boulevard"/>
+        <NamedIndividual IRI="#PublicOpenSpace"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broaderTransitive"/>
+        <NamedIndividual IRI="#Boulevard"/>
+        <NamedIndividual IRI="#Block"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broaderTransitive"/>
+        <NamedIndividual IRI="#Boulevard"/>
+        <NamedIndividual IRI="#CityObject"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broaderTransitive"/>
+        <NamedIndividual IRI="#Boulevard"/>
+        <NamedIndividual IRI="#PublicOpenSpace"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
+        <NamedIndividual IRI="#Boulevard"/>
+        <NamedIndividual IRI="#SPoOn"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#semanticRelation"/>
+        <NamedIndividual IRI="#Boulevard"/>
+        <NamedIndividual IRI="#Block"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#semanticRelation"/>
+        <NamedIndividual IRI="#Boulevard"/>
+        <NamedIndividual IRI="#CityObject"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#semanticRelation"/>
+        <NamedIndividual IRI="#Boulevard"/>
+        <NamedIndividual IRI="#PublicOpenSpace"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#BuildableArea"/>
+        <NamedIndividual IRI="#CityObject"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#Building"/>
+        <NamedIndividual IRI="#BuildableArea"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#BuildingDensity"/>
+        <NamedIndividual IRI="#Density"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
+        <NamedIndividual IRI="#BuildingDensity"/>
+        <NamedIndividual IRI="#SPoOn"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#CarLane"/>
+        <NamedIndividual IRI="#Street"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#Carpooling"/>
+        <NamedIndividual IRI="#PublicTransportLane"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#City"/>
+        <NamedIndividual IRI="#UrbanEnvironment"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
+        <NamedIndividual IRI="#City"/>
+        <NamedIndividual IRI="#SPoOn"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#CityObject"/>
+        <NamedIndividual IRI="#UrbanEnvironment"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
+        <NamedIndividual IRI="#CityObject"/>
+        <NamedIndividual IRI="#SPoOn"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#ConstructionLine"/>
+        <NamedIndividual IRI="#UrbanRepresentation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#Courtyard"/>
+        <NamedIndividual IRI="#CityObject"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#CoveredWalkway"/>
+        <NamedIndividual IRI="#CityObject"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#CulturalSpace"/>
+        <NamedIndividual IRI="#PublicOpenSpace"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
+        <NamedIndividual IRI="#Density"/>
+        <NamedIndividual IRI="#SPoOn"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
+        <NamedIndividual IRI="#Economy"/>
+        <NamedIndividual IRI="#SPoOn"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#topConceptOf"/>
+        <NamedIndividual IRI="#Economy"/>
+        <NamedIndividual IRI="#SPoOn"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#EducationalSpace"/>
+        <NamedIndividual IRI="#PublicOpenSpace"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#ElectricScooter"/>
+        <NamedIndividual IRI="#PublicTransportLane"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
+        <NamedIndividual IRI="#Environment"/>
+        <NamedIndividual IRI="#SPoOn"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#topConceptOf"/>
+        <NamedIndividual IRI="#Environment"/>
+        <NamedIndividual IRI="#SPoOn"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#Ferry"/>
+        <NamedIndividual IRI="#PublicTransportLane"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#Garden"/>
+        <NamedIndividual IRI="#PublicOpenSpace"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#GreenSpace"/>
+        <NamedIndividual IRI="#PublicOpenSpace"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#LandUse"/>
+        <NamedIndividual IRI="#UrbanRepresentation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
+        <NamedIndividual IRI="#LandUse"/>
+        <NamedIndividual IRI="#SPoOn"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#ParatransitService"/>
+        <NamedIndividual IRI="#PublicTransportLane"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#Park"/>
+        <NamedIndividual IRI="#PublicOpenSpace"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#Parking"/>
+        <NamedIndividual IRI="#PublicOpenSpace"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#Plaza"/>
+        <NamedIndividual IRI="#PublicOpenSpace"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#PopulationDensity"/>
+        <NamedIndividual IRI="#Density"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
+        <NamedIndividual IRI="#PopulationDensity"/>
+        <NamedIndividual IRI="#SPoOn"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#PrivateCourtyard"/>
+        <NamedIndividual IRI="#CityObject"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#Promenade"/>
+        <NamedIndividual IRI="#PublicOpenSpace"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#PublicMarket"/>
+        <NamedIndividual IRI="#PublicOpenSpace"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#PublicOpenSpace"/>
+        <NamedIndividual IRI="#CityObject"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#PublicTransportLane"/>
+        <NamedIndividual IRI="#Street"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#Railway"/>
+        <NamedIndividual IRI="#PublicTransportLane"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#RoadDensity"/>
+        <NamedIndividual IRI="#Density"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
+        <NamedIndividual IRI="#RoadDensity"/>
+        <NamedIndividual IRI="#SPoOn"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#hasTopConcept"/>
+        <NamedIndividual IRI="#SPoOn"/>
+        <NamedIndividual IRI="#CityObject"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#hasTopConcept"/>
+        <NamedIndividual IRI="#SPoOn"/>
+        <NamedIndividual IRI="#Economy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#hasTopConcept"/>
+        <NamedIndividual IRI="#SPoOn"/>
+        <NamedIndividual IRI="#Environment"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#hasTopConcept"/>
+        <NamedIndividual IRI="#SPoOn"/>
+        <NamedIndividual IRI="#Society"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#Setback"/>
+        <NamedIndividual IRI="#UrbanRepresentation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
+        <NamedIndividual IRI="#Setback"/>
+        <NamedIndividual IRI="#SPoOn"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#Sidewalk"/>
+        <NamedIndividual IRI="#Street"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
+        <NamedIndividual IRI="#Society"/>
+        <NamedIndividual IRI="#SPoOn"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#topConceptOf"/>
+        <NamedIndividual IRI="#Society"/>
+        <NamedIndividual IRI="#SPoOn"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#Square"/>
+        <NamedIndividual IRI="#PublicOpenSpace"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#StreetLine"/>
+        <NamedIndividual IRI="#UrbanRepresentation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#StreetNetwork"/>
+        <NamedIndividual IRI="#CityObject"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#narrower"/>
+        <NamedIndividual IRI="#StreetNetwork"/>
+        <NamedIndividual IRI="#Street"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#Subway"/>
+        <NamedIndividual IRI="#PublicTransportLane"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#TramLane"/>
+        <NamedIndividual IRI="#PublicTransportLane"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#Transport"/>
+        <NamedIndividual IRI="#PublicTransportLane"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#Trolley"/>
+        <NamedIndividual IRI="#PublicTransportLane"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
+        <NamedIndividual IRI="#UrbanEnvironment"/>
+        <NamedIndividual IRI="#SPoOn"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#UrbanRepresentation"/>
+        <NamedIndividual IRI="#UrbanEnvironment"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
+        <NamedIndividual IRI="#UrbanRepresentation"/>
+        <NamedIndividual IRI="#SPoOn"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
+        <NamedIndividual IRI="#WaterTaxi"/>
+        <NamedIndividual IRI="#PublicTransportLane"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasName"/>
+        <NamedIndividual IRI="#CityStateOfSingapore"/>
+        <Literal xml:lang="en">Singapore</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasArea"/>
+        <NamedIndividual IRI="#ΟΤ_120212"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">1200.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasArea"/>
+        <NamedIndividual IRI="#ΟΤ_120212"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">5070.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCirculationArea"/>
+        <NamedIndividual IRI="#ΟΤ_120212"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">3370.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasLatitude"/>
+        <NamedIndividual IRI="#ΟΤ_120212"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">40.633952</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasLongtitude"/>
+        <NamedIndividual IRI="#ΟΤ_120212"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">22.938132</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasName"/>
+        <NamedIndividual IRI="#ΟΤ_120212"/>
+        <Literal>Plateia Eleftherias</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasRestArea"/>
+        <NamedIndividual IRI="#ΟΤ_120212"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">500.0</Literal>
+    </DataPropertyAssertion>
+    <EquivalentObjectProperties>
+        <ObjectProperty IRI="http://www.opengis.net/ont/geosparql#ehContains"/>
+        <ObjectProperty IRI="#includes"/>
+    </EquivalentObjectProperties>
+    <EquivalentObjectProperties>
+        <ObjectProperty IRI="http://www.opengis.net/ont/geosparql#hasCentroid"/>
+        <ObjectProperty IRI="#has_Centroid"/>
+    </EquivalentObjectProperties>
+    <EquivalentObjectProperties>
+        <ObjectProperty IRI="http://www.opengis.net/ont/geosparql#sfWithin"/>
+        <ObjectProperty IRI="#includes"/>
+    </EquivalentObjectProperties>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#defines"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#defines"/>
+        <ObjectProperty IRI="#isDefinedBy"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isSurroundedBy"/>
+        <ObjectProperty IRI="#surrounds"/>
+    </InverseObjectProperties>
+    <SymmetricObjectProperty>
+        <ObjectProperty IRI="#surrounds"/>
+    </SymmetricObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasSidewalk"/>
+        <Class IRI="#Street"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isComposedOf"/>
+        <Class IRI="#City"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasSidewalk"/>
+        <Class IRI="#Sidewalk"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isComposedOf"/>
+        <Class IRI="#CityObject"/>
+    </ObjectPropertyRange>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasBuildingDensity"/>
+        <Class IRI="#CityObject"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasPopulationDensity"/>
+        <Class IRI="#CityObject"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasRoadDensity"/>
+        <Class IRI="#CityObject"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasAddress"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasAmenity"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasArea"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasBarrier"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasBetweenness"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasBikeWay"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasBuildingDensity"/>
+        <Datatype abbreviatedIRI="xsd:decimal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasCirculationArea"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasEmail"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasFootWay"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasGreenArea"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasHeight"/>
+        <Datatype abbreviatedIRI="xsd:decimal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasID"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasLatitude"/>
+        <DatatypeRestriction>
+            <Datatype abbreviatedIRI="xsd:double"/>
+            <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minInclusive">
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">-90.0</Literal>
+            </FacetRestriction>
+            <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">90.0</Literal>
+            </FacetRestriction>
+        </DatatypeRestriction>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasLength"/>
+        <Datatype abbreviatedIRI="xsd:decimal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasLight"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasLongtitude"/>
+        <DatatypeRestriction>
+            <Datatype abbreviatedIRI="xsd:double"/>
+            <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minInclusive">
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">-180.0</Literal>
+            </FacetRestriction>
+            <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">180.0</Literal>
+            </FacetRestriction>
+        </DatatypeRestriction>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasMaterial"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasMaxSpeed"/>
+        <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasName"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasNumberOfLanes"/>
+        <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasNumberOfLevels"/>
+        <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasOpeningHours"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasPhone"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasPopulation"/>
+        <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasPopulationDensity"/>
+        <Datatype abbreviatedIRI="xsd:decimal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasPostCode"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasReference"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasRestArea"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasRoadDensity"/>
+        <Datatype abbreviatedIRI="xsd:decimal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasService"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasSize"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasSmoothness"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasTunnel"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasType"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasUse"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasWebsite"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasWidth"/>
+        <Datatype abbreviatedIRI="xsd:decimal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#isOneWay"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ArcheologicalSpace</IRI>
+        <IRI>#ArcheologicalSpace</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#BikeLane</IRI>
+        <IRI>#BikeLane</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#BikeLane</IRI>
+        <Literal>Could appear on sidewalk or streets.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#BikeLane</IRI>
+        <Literal xml:lang="el">Ποδηλατόδρομος</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#BikeLane</IRI>
+        <Literal xml:lang="en">Dedicated lane for bicycles</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Block</IRI>
+        <IRI>#Block</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Block</IRI>
+        <Literal xml:lang="el">Ορισμός βασισμένος στο άρθρο 2 του ΝΟΚ.
+Τα οικοδομικά τετράγωνα αποτελούν βασικές μονάδες της αστικής δομής.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Block</IRI>
+        <Literal xml:lang="el">Οικοδομικό τετράγωνο</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#Block</IRI>
+        <Literal xml:lang="en">A parcel of land surrounded by streets, forming the basic unit of urban structure. It may include public spaces, buildable areas, and other land uses.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#Block</IRI>
+        <Literal xml:lang="en">A physical unit of urban structure surrounded by streets</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#Block</IRI>
+        <Literal xml:lang="el">Οικοδομικό τετράγωνο (Ο.Τ.) είναι κάθε δομήσιμη ενιαία έκταση που βρίσκεται μέσα στο εγκεκριμένο ρυμοτομικό σχέδιο και περιβάλλεται από κοινόχρηστους χώρους ή και εκτός σχεδίου περιοχή.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+        <IRI>#Block</IRI>
+        <Literal xml:lang="en">Block</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Boulevard</IRI>
+        <IRI>#Boulevard</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Boulevard</IRI>
+        <Literal>Street or public space?</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+        <IRI>#Boulevard</IRI>
+        <Literal xml:lang="en">Boulevard</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#BuildableArea</IRI>
+        <IRI>#BuildableArea</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#BuildableArea</IRI>
+        <Literal xml:lang="el">Οικοδομήσιμος Χώρος</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#BuildableArea</IRI>
+        <Literal xml:lang="en">The portion of a site or block available for buildings and structures, determined by urban planning regulations such as setbacks and built-to-lines.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#BuildableArea</IRI>
+        <Literal xml:lang="el">Το τμήμα του οικοπέδου ή οικοδομικού τετραγώνου που μπορεί να δομηθεί, όπως καθορίζεται από τις πολεοδομικές ρυθμίσεις, όπως η οικοδομική γραμμή.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+        <IRI>#BuildableArea</IRI>
+        <Literal xml:lang="en">Buildable Area</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Building</IRI>
+        <IRI>#Building</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#CarLane</IRI>
+        <IRI>#CarLane</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#CarLane</IRI>
+        <Literal xml:lang="en">Lane specifically for cars and other vehicles.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#Church</IRI>
+        <Literal>Religious building</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#City</IRI>
+        <IRI>#City</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#City</IRI>
+        <Literal>Represents the city as a conceptual and administrative entity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#City</IRI>
+        <Literal xml:lang="el">Πόλη</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+        <IRI>#City</IRI>
+        <Literal xml:lang="en">City</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CityFurniture</IRI>
+        <Literal xml:lang="el">Αστικός Εξοπλισμός</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#CityFurniture</IRI>
+        <Literal xml:lang="en">Objects placed on public spaces for various purposes, including benches, bollards, post boxes, phone boxes, streetlamps, traffic lights, traffic signs, bus stops, tram stops, taxi stands, public lavatories, fountains, and waste receptacles.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#CityFurniture</IRI>
+        <Literal xml:lang="el">Στοιχεία που τοποθετούνται σε δημόσιους χώρους για διάφορους σκοπούς. Πρόκειται για καθιστικά, κάδους απορριμμάτων, βρύσες, πινακίδες, χάρτες, σήμανση, στοιχεία παρεμπόδισης και διαχωριστικά κάγκελα, ζαρντινιέρες, κατασκευές στάθμευσης ποδηλάτων και μοτοποδηλάτων, σχάρες, φωτιστικά σώματα, στάσεις λεωφορείων, γραμματοκιβώτια, κ.λπ.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+        <IRI>#CityFurniture</IRI>
+        <Literal xml:lang="en">City Furniture</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#CityObject</IRI>
+        <IRI>#CityObject</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#CityObject</IRI>
+        <Literal xml:lang="en">The physical and spatial representation of the urban environment, encompassing streets, blocks, buildings, and other tangible elements.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ConstructionLine</IRI>
+        <IRI>#ConstructionLine</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ConstructionLine</IRI>
+        <Literal xml:lang="el">Ορισμός βασισμένος στο άρθρο 2 του ΝΟΚ.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ConstructionLine</IRI>
+        <Literal xml:lang="el">Οικοδομική Γραμμή</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#altLabel"/>
+        <IRI>#ConstructionLine</IRI>
+        <Literal xml:lang="en">Construction Line</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#ConstructionLine</IRI>
+        <Literal xml:lang="en">A zoning device which controls the location of buildings to create consistent streetwalls or define public spaces; unlike a set back, which establishes a minimum distance from a property line or street, a build-to-line establishes the maximum permitted set back or exact location of a building facade.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#ConstructionLine</IRI>
+        <Literal xml:lang="el">Οικοδομική γραμμή είναι η γραμμή που καθορίζεται από εγκεκριμένο ρυμοτομικό σχέδιο και αποτελεί όριο της δόμησης στο οικοδομικό τετράγωνο προς τον κοινόχρηστο χώρο που το περιβάλλει.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+        <IRI>#ConstructionLine</IRI>
+        <Literal xml:lang="en">Build-to-line</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Courtyard</IRI>
+        <IRI>#Courtyard</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Courtyard</IRI>
+        <Literal>Μήπως να το ορίσω κάπως αλλιώς; αδόμητος χώρος πχ?</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#Courtyard</IRI>
+        <Literal>Enclosed open space within or between buildings.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#CoveredWalkway</IRI>
+        <IRI>#CoveredWalkway</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CoveredWalkway</IRI>
+        <Literal xml:lang="el">Στοά</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#CoveredWalkway</IRI>
+        <Literal>Walkways with overhead cover for pedestrians</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#CulturalSpace</IRI>
+        <IRI>#CulturalSpace</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Economy</IRI>
+        <IRI>#Economy</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#EducationalSpace</IRI>
+        <IRI>#EducationalSpace</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Environment</IRI>
+        <IRI>#Environment</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Ferry</IRI>
+        <IRI>#Ferry</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Garden</IRI>
+        <IRI>#Garden</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#GreenSpace</IRI>
+        <IRI>#GreenSpace</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#GreenSpace</IRI>
+        <Literal xml:lang="el">Το αστικό πράσινο αποτελεί δείκτη βιωσιμότητας του αστικού ιστού. Συμβάλει στη διαμόρφωση του κλίματος της πόλης και παράλληλα  λειτουργεί ως χώρος αναψυχής και περιπάτου για τους ανθρώπους.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#GreenSpace</IRI>
+        <Literal xml:lang="el">Αστικό πράσινο/Χώρος Πρασίνου</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#GreenSpace</IRI>
+        <Literal>Areas of vegetation in an urban environment, such as parks</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#GreenSpace</IRI>
+        <Literal xml:lang="el">Ο όρος «αστικό πράσινο» χαρακτηρίζει εκείνους τους χώρους του πολεοδομικού ιστού, που σχεδιάστηκαν για να παραμείνουν χωρίς κτίσματα και να φιλοξενήσουν κάποια μορφή βλάστησης.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+        <IRI>#GreenSpace</IRI>
+        <Literal xml:lang="en">Green Space</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#Library</IRI>
+        <Literal>Public or private building for reading and study</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Park</IRI>
+        <IRI>#Park</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Parking</IRI>
+        <IRI>#Parking</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Plaza</IRI>
+        <IRI>#Plaza</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#PrivateCourtyard</IRI>
+        <IRI>#PrivateCourtyard</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#PrivateCourtyard</IRI>
+        <Literal xml:lang="el">Προκήπιο (ή πρασιά) είναι το τμήμα του οικοδομικού τετραγώνου, που βρίσκεται μεταξύ της ρυμοτομικής και οικοδομικής γραμμής, όπως αυτές ορίζονται από το εγκεκριμένο ρυμοτομικό σχέδιο.
+Είναι ο ιδιωτικός υποχρεωτικός ακάλυπτος χώρος που συνήθως επιβάλλεται στα πρόσωπα των οικοπέδων για λόγους σχετικούς με το οικοδομικό σύστημα της περιοχής. Επιβάλλεται για λόγους προστασίας σσυγκεκριμένων χώρων από τη δόμησή τους.
+
+Είναι το setback?
+
+Ακάλυπτος χώρος είναι ο χώρος του οικοπέδου που δεν δομείται. (Νομίζω είναι το ίδιο)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Promenade</IRI>
+        <IRI>#Promenade</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#PublicMarket</IRI>
+        <IRI>#PublicMarket</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#PublicOpenSpace</IRI>
+        <IRI>#PublicOpenSpace</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PublicOpenSpace</IRI>
+        <Literal xml:lang="el">Κοινόχρηστος χώρος</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#altLabel"/>
+        <IRI>#PublicOpenSpace</IRI>
+        <Literal xml:lang="en">Common Space</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#PublicOpenSpace</IRI>
+        <Literal xml:lang="en">An area within a block that is accessible to the public, including parks, squares, and pedestrian zones.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#PublicOpenSpace</IRI>
+        <Literal xml:lang="el">Κοινόχρηστοι χώροι είναι οι κοινής χρήσης ελεύθεροι χώροι, που καθορίζονται από το εγκεκριμένο ρυμοτομικό σχέδιο ή έχουν τεθεί σε κοινή χρήση με οποιονδήποτε νόμιμο τρόπο.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+        <IRI>#PublicOpenSpace</IRI>
+        <Literal xml:lang="en">Public Open Space</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#PublicTransportLane</IRI>
+        <IRI>#PublicTransportLane</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#PublicTransportLane</IRI>
+        <Literal>Lane for public transport</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Railway</IRI>
+        <IRI>#Railway</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#SPoOn</IRI>
+        <Literal>This ontology serves as a structured representation of urban planning concepts and their relationships.  
+It is designed to be modular and extendable, integrating sustainability dimensions (environment, economy, society) to support future domain-specific extensions.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#altLabel"/>
+        <IRI>#SPoOn</IRI>
+        <Literal>Sustainable City Ontology</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#SPoOn</IRI>
+        <Literal>The Sustainable Polis Ontology (SPoOn) defines key terms and relationships in urban planning with a focus on sustainability.
+It incorporates the three pillars of sustainability—environment, economy, and society—allowing for future expansion by domain experts.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+        <IRI>#SPoOn</IRI>
+        <Literal>Sustainable Polis Ontology (SPoOn)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#School</IRI>
+        <Literal>Educational building</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#Setback</IRI>
+        <Literal xml:lang="en">A setback is the required minimum distance between a building and property lines or streets, often defined by regulations to control urban density, privacy, and aesthetics.
+
+The horizontal distance from the property line to the face of a building or from natural features to a building</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Sidewalk</IRI>
+        <IRI>#Sidewalk</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Sidewalk</IRI>
+        <Literal xml:lang="el">Πεζοδρόμιο</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#Sidewalk</IRI>
+        <Literal xml:lang="en">Space adjacent to streets for pedestrians.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#Sidewalk</IRI>
+        <Literal xml:lang="el">Ο χώρος παράπλευρα από την οδό, που προορίζεται για πεζούς</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Society</IRI>
+        <IRI>#Society</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Square</IRI>
+        <IRI>#Square</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Square</IRI>
+        <Literal xml:lang="el">Πλατεία</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Street</IRI>
+        <IRI>#Street</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Street</IRI>
+        <Literal xml:lang="el">Δρόμος</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#altLabel"/>
+        <IRI>#Street</IRI>
+        <Literal xml:lang="el">Οδός</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#Street</IRI>
+        <Literal xml:lang="en">Main pathways for vehicular traffic</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#Street</IRI>
+        <Literal xml:lang="el">Δρόμοι ή Οδοί είναι οι κοινόχρηστες εκτάσεις που εξυπηρετούν τις ανάγκες κυκλοφορίας των οχημάτων και των πεζών.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+        <IRI>#Street</IRI>
+        <Literal xml:lang="en">Street</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#StreetLine</IRI>
+        <IRI>#StreetLine</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#StreetLine</IRI>
+        <Literal xml:lang="el">Ορισμός βασισμένος στο άρθρο 2 του ΝΟΚ.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StreetLine</IRI>
+        <Literal xml:lang="el">Ρυμοτομική Γραμμή</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#StreetLine</IRI>
+        <Literal xml:lang="en">The boundary between private property and public (or municipal) space. 
+The lot line between the street and an abutting lot.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#StreetLine</IRI>
+        <Literal xml:lang="el">Ρυμοτομική γραμμή είναι η γραμμή, που καθορίζεται από εγκεκριμένο ρυμοτομικό σχέδιο και οριοθετεί το οικοδομικό τετράγωνο ή γήπεδο σε σχέση με τον κοινόχρηστο χώρο που το περιβάλλει ή εκτός σχεδίου περιοχή.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+        <IRI>#StreetLine</IRI>
+        <Literal xml:lang="en">Street line</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#StreetNetwork</IRI>
+        <IRI>#StreetNetwork</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#StreetNetwork</IRI>
+        <Literal>One of the two fundamental components of urban form.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StreetNetwork</IRI>
+        <Literal xml:lang="el">Οδικό Δίκτυο</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#StreetNetwork</IRI>
+        <Literal xml:lang="en">The interconnected system of streets, roads, sidewalks, and pathways forming the circulation framework of a city.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+        <IRI>#StreetNetwork</IRI>
+        <Literal xml:lang="en">Street Network</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Subway</IRI>
+        <IRI>#Subway</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#TraditionalBuilding</IRI>
+        <Literal>Culturally or historically significant building</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#TramLane</IRI>
+        <IRI>#TramLane</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Transport</IRI>
+        <IRI>#Transport</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#Transport</IRI>
+        <Literal xml:lang="en">Means of transportation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Trolley</IRI>
+        <IRI>#Trolley</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#UrbanEnvironment</IRI>
+        <IRI>#UrbanEnvironment</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#UrbanEnvironment</IRI>
+        <Literal>A conceptual model that encompasses the physical and spatial components of the city (e.g., streets, blocks) as well as the representational features (e.g., land use, setbacks) that define or regulate its structure and functionality.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#UrbanRepresentation</IRI>
+        <IRI>#UrbanRepresentation</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#UrbanRepresentation</IRI>
+        <Literal>Represents regulatory, symbolic, or conceptual features.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#WaterTaxi</IRI>
+        <IRI>#WaterTaxi</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#hasBuildingDensity</IRI>
+        <Literal>Built area versus total area (%)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#hasPopulationDensity</IRI>
+        <Literal>People per unit area (people/km²)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#hasRoadDensity</IRI>
+        <Literal>Road density is the ratio of the length of the country&apos;s total road network to the country&apos;s land area. The road network includes all roads in the country: motorways, highways, main or national roads, secondary or regional roads, and other urban and rural roads.
+ (km of road per 100 sq. km of land area)</Literal>
+    </AnnotationAssertion>
+    <SubAnnotationPropertyOf>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#altLabel"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+    </SubAnnotationPropertyOf>
+    <SubAnnotationPropertyOf>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+    </SubAnnotationPropertyOf>
+    <SubAnnotationPropertyOf>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+    </SubAnnotationPropertyOf>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
